@@ -1,0 +1,21 @@
+/home/dmitry/testQC/platforms/android/ant-build/classes.dex : \
+/home/dmitry/testQC/platforms/android/ant-build/classes/org/apache/cordova/camera/FileHelper.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/org/apache/cordova/camera/CameraLauncher.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/org/apache/cordova/camera/ExifHelper.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/plugins/barcodescanner/BarcodeScanner.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$layout.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$string.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/BuildConfig.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$xml.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$id.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$attr.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$array.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$drawable.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$raw.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$color.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$dimen.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/ScannerDemo.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R.class \
+/home/dmitry/testQC/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$menu.class \
+/home/dmitry/testQC/platforms/android/ant-build/dexedLibs/classes-44d1e5c108884ed91e8b02884c95408b.jar \
+/home/dmitry/testQC/platforms/android/ant-build/dexedLibs/com.google.zxing.client.android.captureactivity-9a45b5e451e2d4f478bf4c20cb4f0245.jar \
