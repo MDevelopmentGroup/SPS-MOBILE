@@ -110,6 +110,7 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/phonegap.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/img \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/cordova_plugins.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/authorization.html \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/icon \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/screen \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/icon/webos \
@@ -207,6 +208,7 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine-html.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/css/index.css \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/css/authorization.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/jQuery/jquery-2.1.1.min.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/org.apache.cordova.camera \

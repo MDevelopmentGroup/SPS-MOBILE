@@ -14,35 +14,32 @@
         <h1>Ballroom dancing</h1>
         <p class="lead">Нажмите на кнопку и наведите камеру на QR код</p>
         <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="scan"><span class="glyphicon glyphicon-qrcode"></span> Считать код </a></p>
+        <p>Ссылка:</p><p id="info">1234567890</p>
+        <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="saveURL"><span class="glyphicon glyphicon-usd"></span> Отправить </a></p>
     </div>
     <!--<div class="row">
         <p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
     </div>-->
-    <p id="info"></p>
+   <!-- <p id="info"></p>
     <button type="button forma" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-qrcode"></span> Считать код
     </button>
-    <button class="saveURL">saveURL</button>
-        <!--<script>
-            $(document).ready(function() {
-                $(".saveURL").click(function () {
-                    $.post("http://localhost:57772/rest/json/url", { json_string: JSON.stringify({URL: "John"}) });
-                })
+    <button class="saveURL">saveURL</button>-->
+        <script>
+            $(document).ready(function(){
+                var str = $("#info").text();
+                $.ajax({
+                    type: "POST",
+                    url: "http://mdg777.zapto.org/rest/GetUrl/",
+                    data: {"URL": str},
+                    dataType: "json",
+                    success: function(msg){
+                        alert( "Прибыли данные: " + msg );
+                    }
+                });
             })
-        </script>-->
-    <script>
-        $(document).ready(function(){
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:57772/rest/json/url",
-                data:{URL: "John"},
-                dataType: "json",
-                success: function(res){
-                    alert(res);
-                }
-            });
-        })
-    </script>
+        </script>
+
     <button class="getall">getall</button>
         <script>
             $(document).ready(function(){
@@ -51,8 +48,7 @@
                     console.log(event);*/
                     /*$.post( "http://192.168.1.35:57772/rest/json/url", { "children": {"URL":"123"}});*/
                     $.get( "http://localhost:57772/rest/json/getall", function( data ) {
-                        $( ".result" ).html( data );
-                        alert( "Load was performed." );
+                        alert(data);
                     });
                 })
             })
