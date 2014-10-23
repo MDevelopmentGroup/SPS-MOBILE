@@ -1,67 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-	<script src="jQuery/jquery-2.1.1.min.js"></script>
-        <link href="bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/index.css" rel="stylesheet">
-        <title>BD</title>
-    </head>
-    <body>
-    <div class="jumbotron forma">
-        <h1>Ballroom dancing</h1>
-        <p class="lead">Нажмите на кнопку и наведите камеру на QR код</p>
-        <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="scan"><span class="glyphicon glyphicon-qrcode"></span> Считать код </a></p>
-        <p>Ссылка:</p><input id="info" value="1232345435" />
-        <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="saveURL"><span class="glyphicon glyphicon-qrcode"></span> Отправить </a></p>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <script src="mobile/jquery-2.1.1.min%20(1).js"></script>
+    <link href="bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/authorization.css" rel="stylesheet">
+    <title>authorization</title>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <button type="button" class="close off"><span aria-hidden="true">&times;</span><span class="sr-only ">Close</span></button>
+        <form class="form-signin" role="form" id="authorization">
+            <h2 class="form-signin-heading">Авторизация</h2>
+            <input type="email" class="form-control" placeholder="Email" required="required" autofocus="" name="login" id="inputlogin">
+            <input type="password" class="form-control" placeholder="Пароль" required="required" name="password" id="inputpass">
+            <input type="checkbox" checked="checked" name="checbox" id="checkboxSL" /> Запомнить меня
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user"/> Войти</button>
+        </form>
     </div>
-    <!--<div class="row">
-        <p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
-    </div>-->
-   <!-- <p id="info"></p>
-    <button type="button forma" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-qrcode"></span> Считать код
-    </button>
-    <button class="saveURL">saveURL</button>-->
-        <script>
-            $(document).ready(function() {
-                $("#saveURL").click(function () {
-                    var info = ($('#info').val());
-                    console.log(info)
-                    $.ajax({
-                        type: "POST",
-                        url: "http://192.168.1.34/rest/json/url",
-                        data: {URL: info},
-                        dataType: "json",
-                        success: function (res) {
-                            alert(res);
-                        }
-                    });
-                })
-            })
-        </script>-->
+    <div id="result"></div>
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 
-    <button class="getall">getall</button>
-        <script>
-            $(document).ready(function(){
-                $(".getall").click(function(){
-                    /*var event =
-                    console.log(event);*/
-                    /*$.post( "http://192.168.1.35:57772/rest/json/url", { "children": {"URL":"123"}});*/
-                    $.get( "http://localhost:57772/rest/json/getall", function( data ) {
-                        alert(data);
-                    });
+    <script>
+        $(document).ready(function(){
+        if (window.localStorage.getItem('CheckBOX')==1)
+        {
+            $("#inputlogin").attr("value",window.localStorage.getItem('loginSD'));
+            $("#inputpass").attr("value",window.localStorage.getItem('passSD'));
+
+        }
+        $( "#authorization" ).submit(function( event ) {
+            // Stop form from submitting normally
+            event.preventDefault();
+
+            // Get some values from elements on the page:
+            var $form = $( this ),
+                    v = $form.find( "input[name='login']" ).val(),
+                    v2 = $form.find( "input[name='password']" ).val()
+                var atpos = v.indexOf("@");
+                var dotpos = v.lastIndexOf(".");
+                if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=v.length) {
+                    alert("Неверный почтовый адрес");
+                    return false;
+                }
+            // Send the data using post
+            var posting = $.post("http://mdg777.zapto.org/rest/LoginA/" , { login: v, password: v2} );
+            if ($('#checkboxSL').prop("checked")) window.localStorage.setItem('CheckBOX', true);
+            else window.localStorage.setItem('CheckBOX', false);
+
+            //if (window.localStorage.getItem('CheckBOX'))
+              //  {
+                //    //window.localStorage.setItem('CheckBOX', true);
+                  //  window.localStorage.setItem('loginSD', v);
+                    //window.localStorage.setItem('passSD', v2);
+            //    }
+            //else
+              //  {
+                //    window.localStorage.setItem('CheckBOX', false);
+                  //  window.localStorage.removeItem('loginSD');
+                    //window.localStorage.removeItem('passSD');
+                //}
+         //   }
+            // Put the results in a div
+            posting.done(function( res ) {
+                if (res == "Ошибка авторизации.") alert ("Неверный логин или пароль")
+                else{
+                    if (window.localStorage.getItem('CheckBOX') == 1)
+                    {
+                        window.localStorage.setItem('CheckBOX', true);
+                        window.localStorage.setItem('loginSD', v);
+                        window.localStorage.setItem('passSD', v2);
+                    }
+                    else
+                    {
+                        window.localStorage.setItem('CheckBOX', false);
+                        $("#inputlogin").removeAttr('value');
+                        $("#inputpass").removeAttr('value');
+                        window.localStorage.removeItem('loginSD');
+                        window.localStorage.removeItem('passSD');
+                    }
+
+                    document.location.href = "body.html";
+                }
                 })
-            })
-        </script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="barcodescanner.js"></script>
-        <script type="text/javascript" src="childbrowser.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+            });
+        $(".off").click(function(){
+            navigator.app.exitApp();
+        })
+        })
+    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="barcodescanner.js"></script>
+    <script type="text/javascript" src="childbrowser.js"></script>
+</body>
 </html>

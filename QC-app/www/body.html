@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <script src="mobile/jquery-2.1.1.min%20(1).js"></script>
+    <link href="bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="index.css" rel="stylesheet">
+    <title>BD</title>
+</head>
+<body>
+<div class="top">
+    <div class="jumbotron">
+        <button type="button" class="close off"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h1><em>Ballroom dancing</em></h1>
+        <p class="lead">Нажмите на кнопку и наведите камеру на QR код</p>
+            <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="scan"><span class="glyphicon glyphicon-qrcode"></span> Считать код </a></p>
+            <p><a class="btn btn-primary btn-block btn-lg" href="#" role="button" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span> Дополнительно </a></p>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <a class="btn btn-primary btn-lg btn-block" href="#" role="button" id=""><span class="glyphicon glyphicon-log-out"></span>Очистить куки</a>
+                <a class="btn btn-primary btn-lg btn-block" href="#" role="button" id=""><span class="glyphicon glyphicon-question-sign"></span>Справка</a>
+                <a class="btn btn-primary btn-lg btn-block off" href="#" role="button"><span class="glyphicon glyphicon-off"></span>Выход из приложения</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Назад</button>
+            </div>
+        </div>
+    </div>
+</div><!--конец-->
+
+
+<div class="modal fade bs-example-modal-sm" id="QR-codeAdd" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <p>Ссылка:</p><p id="info"></p>
+            <p><a class="btn btn-sm btn-primary btn-block" href="#" role="button" id="saveURL"><span class="glyphicon glyphicon-usd"></span> Отправить </a></p>
+        </div>
+    </div>
+</div>
+<script>
+    var check = function(par){
+        if (($("#info").text()!=par) && ($("#info").text()!=''))
+        {
+            $("#QR-codeAdd").modal('show');
+            par = $("#info").text();
+        }
+        setTimeout(check, 25, par)
+    };
+    $(document).ready(function(){
+        $("#saveURL").click(function(){
+            $("#QR-codeAdd").modal('hide')
+            var str = $("#info").text();
+            if (str=="") alert("Пустой запрос")
+            else
+            $.ajax({
+                type: "POST",
+                url: "http://mdg777.zapto.org/rest/GetUrl/",
+                data: {"URL": str},
+                dataType: "json",
+                success: function(msg){
+                    alert( "Прибыли данные: " + msg );
+                }
+            });
+        });
+        $("#scan").click(function(){
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+            scanner.scan(function (result) {
+                console.log("Scanner result: \n" +
+                        "text: " + result.text + "\n" +
+                        "format: " + result.format + "\n" +
+                        "cancelled: " + result.cancelled + "\n");
+                document.getElementById("info").innerHTML = result.text;
+;
+                /*
+                 if (args.format == "QR_CODE") {
+                 window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+                 }
+                 */
+
+            }, function (error) {
+                console.log("Scanning failed: ", error);
+            });
+        });
+        $(".off").click(function(){
+                navigator.app.exitApp();
+        })
+    })
+
+</script>
+<script>
+    check('');
+</script>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="barcodescanner.js"></script>
+<script type="text/javascript" src="childbrowser.js"></script>
+</body>
+</html>

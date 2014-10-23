@@ -1,6 +1,6 @@
 body {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-color: #080808;
 }
 
@@ -37,4 +37,23 @@ body {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+.sidebar {
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #1b1b1b;
+    border-right: 3px solid #eee;
+}
+.jumbotron {
+    border: 3px orange double;
+    margin: 0 auto;
+    max-width: 350px;
+    padding: 15px;
 }

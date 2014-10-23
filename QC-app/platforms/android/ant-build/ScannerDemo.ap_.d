@@ -101,16 +101,17 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/icon.png \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/config.xml \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/css \
-/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/jQuery \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/index.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec.html \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/README.md \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/body.html \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/phonegap.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/img \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/cordova_plugins.js \
-/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/authorization.html \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/icon \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/screen \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/icon/webos \
@@ -207,9 +208,7 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec/lib/jasmine-1.2.0/MIT.LICENSE \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine-html.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js \
-/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/css/index.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/css/authorization.css \
-/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/jQuery/jquery-2.1.1.min.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner/www \
@@ -236,5 +235,13 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap/3.2.0/css/bootstrap-theme.min.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap/3.2.0/js/bootstrap.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap/3.2.0/js/bootstrap.min.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery-2.1.1.min (1).js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1) \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.min.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.structure.min.css \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.theme.min.css \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.theme.css \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.structure.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/img/logo.png \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/AndroidManifest.xml \
