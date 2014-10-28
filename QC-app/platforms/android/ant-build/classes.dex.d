@@ -17,5 +17,6 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/ScannerDemo.class \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R.class \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/classes/com/phonegap/ryanw/barcodedemo/R$menu.class \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/classes/com/bez4pieci/cookies/Cookies.class \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/dexedLibs/classes-5c1eb6dfac370a7353c0d8380fcd0ae5.jar \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/dexedLibs/com.google.zxing.client.android.captureactivity-a2659dacc3e7fed9e092c081e5d0fdf5.jar \

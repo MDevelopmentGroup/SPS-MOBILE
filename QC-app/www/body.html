@@ -7,99 +7,139 @@
     <script src="mobile/jquery-2.1.1.min%20(1).js"></script>
     <link href="bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link href="index.css" rel="stylesheet">
+    <script src="mobile/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
+    <link href="css/index.css" rel="stylesheet">
     <title>BD</title>
 </head>
 <body>
-<div class="top">
-    <div class="jumbotron">
-        <button type="button" class="close off"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h1><em>Ballroom dancing</em></h1>
-        <p class="lead">Нажмите на кнопку и наведите камеру на QR код</p>
-            <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="scan"><span class="glyphicon glyphicon-qrcode"></span> Считать код </a></p>
-            <p><a class="btn btn-primary btn-block btn-lg" href="#" role="button" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span> Дополнительно </a></p>
+    <!--Основное окно-->
+    <div class="top">
+        <div class="jumbotron">
+            <button type="button" class="close off"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h1><em>Ballroom dancing</em></h1>
+            <p class="lead">Нажмите на кнопку и наведите камеру на QR код</p>
+                <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="scan"><span class="glyphicon glyphicon-qrcode"></span> Считать код </a></p>
+                <p><a class="btn btn-primary btn-block btn-lg" href="#" role="button" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span> Ещё </a></p>
+        </div>
     </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <a class="btn btn-primary btn-lg btn-block" href="#" role="button" id=""><span class="glyphicon glyphicon-log-out"></span>Очистить куки</a>
-                <a class="btn btn-primary btn-lg btn-block" href="#" role="button" id=""><span class="glyphicon glyphicon-question-sign"></span>Справка</a>
-                <a class="btn btn-primary btn-lg btn-block off" href="#" role="button"><span class="glyphicon glyphicon-off"></span>Выход из приложения</a>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Назад</button>
+    <!-- модальное окно кнопки "Ещё"-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <a class="btn btn-primary btn-block" href="#" role="button" id="ClearCoocie"><span class="glyphicon glyphicon-log-out"></span> Очистить данные и куки</a>
+                    <a class="btn btn-primary btn-block" href="#" role="button" id="about"><span class="glyphicon glyphicon-question-sign"></span> Справка</a>
+                    <a class="btn btn-primary  btn-block off" href="#" role="button"><span class="glyphicon glyphicon-off"></span> Выход из приложения</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Назад</button>
+                </div>
             </div>
         </div>
     </div>
-</div><!--конец-->
 
-
-<div class="modal fade bs-example-modal-sm" id="QR-codeAdd" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <p>Ссылка:</p><p id="info"></p>
-            <p><a class="btn btn-sm btn-primary btn-block" href="#" role="button" id="saveURL"><span class="glyphicon glyphicon-usd"></span> Отправить </a></p>
+    <!--Модальное окно отправки URL адреса на сервер-->
+    <div class="modal fade bs-example-modal-sm" id="QR-codeAdd" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h1>Ссылка:</h1><p id="info">http://mdg777.zapto.org/dances/index.html#/Subscription/8b444a38b6a81ee6a2461c6ea1ae0350</p>
+                <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="saveURL"><span class="glyphicon glyphicon-usd"></span> Отправить </a></p>
+            </div>
         </div>
     </div>
-</div>
-<script>
-    var check = function(par){
-        if (($("#info").text()!=par) && ($("#info").text()!=''))
-        {
-            $("#QR-codeAdd").modal('show');
-            par = $("#info").text();
-        }
-        setTimeout(check, 25, par)
-    };
-    $(document).ready(function(){
-        $("#saveURL").click(function(){
-            $("#QR-codeAdd").modal('hide')
-            var str = $("#info").text();
-            if (str=="") alert("Пустой запрос")
-            else
-            $.ajax({
-                type: "POST",
-                url: "http://mdg777.zapto.org/rest/GetUrl/",
-                data: {"URL": str},
-                dataType: "json",
-                success: function(msg){
-                    alert( "Прибыли данные: " + msg );
-                }
-            });
-        });
-        $("#scan").click(function(){
-            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-            scanner.scan(function (result) {
-                console.log("Scanner result: \n" +
-                        "text: " + result.text + "\n" +
-                        "format: " + result.format + "\n" +
-                        "cancelled: " + result.cancelled + "\n");
-                document.getElementById("info").innerHTML = result.text;
-;
-                /*
-                 if (args.format == "QR_CODE") {
-                 window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-                 }
-                 */
 
-            }, function (error) {
-                console.log("Scanning failed: ", error);
+    <!--Модальное окно справки-->
+    <div class="modal fade bs-example-modal-sm" id="openREADME" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h1>Справка</h1>
+                <p>При нажатии кнопки отправить вы автоматически снимаете одно занятие. После снятия занятия программа покажет количество оставшихся занятий.При нажатии на кнопку "очистить данные и куки" программа удалит пользовательские данные и вы будете переведены на страницу авторизации. </p>
+            </div>
+        </div>
+    </div>
+
+    <!--Модальное окно результата-->
+    <div class="modal fade bs-example-modal-sm" id="Result" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h1>Результат</h1>
+                <p>Школа: </p><p id="SchoolName"></p>
+                <p>Тип занятия: </p><p id="Type"></p>
+                <p>Количество оставшихся занятий: </p><p id="Numb"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Функция check проверяет, не пришли ли данные в форму из асинхронной функции scan. Если в форме появились новые данны, то функция выведет их
+        var check = function(par){
+            if (($("#info").text()!=par) && ($("#info").text()!=''))
+            {
+                $("#QR-codeAdd").modal('show');
+                par = $("#info").text();
+            }
+            setTimeout(check, 25, par)
+        };
+
+        $(document).ready(function(){
+            $("#saveURL").click(function(){
+                $("#QR-codeAdd").modal('hide')
+                var str = $("#info").text();
+                if (str=="") alert("Пустой запрос")
+                else                   // $http.post("http://mdg777.zapto.org/rest/GetUrl/",{"URL": str})
+                $.ajax({
+                    type: "POST",
+                    url: "http://mdg777.zapto.org/rest/GetUrl/",
+                    data: {"URL": str, "hash": window.localStorage.getItem("hash"),"userid": window.localStorage.getItem("userId")},
+                    dataType: "json",
+                    success: function(res){
+                    console.log(res.children.SchoolName);
+                    console.log(res.children.Listtlis[0].Type);
+                    console.log(res.children.Listtlis[0].numb);
+                    document.getElementById("SchoolName").innerHTML = res.children.SchoolName;
+                    document.getElementById("Type").innerHTML = res.children.Listtlis[0].Type;
+                    document.getElementById("Numb").innerHTML = res.children.Listtlis[0].numb;
+                    $("#Result").modal('show');
+                    }
+                });
             });
-        });
-        $(".off").click(function(){
-                navigator.app.exitApp();
+
+            $("#scan").click(function(){
+                var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+                scanner.scan(function (result) {
+                    console.log("Scanner result: \n" +
+                            "text: " + result.text + "\n" +
+                            "format: " + result.format + "\n" +
+                            "cancelled: " + result.cancelled + "\n");
+                    document.getElementById("info").innerHTML = result.text;
+                    /*
+                     if (args.format == "QR_CODE") {
+                     window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+                     }
+                     */
+
+                }, function (error) {
+                    console.log("Scanning failed: ", error);
+                });
+            });
+            $(".off").click(function(){
+                    navigator.app.exitApp();
+            });
+            $("#ClearCoocie").click(function(){
+                localStorage.clear();
+                alert("Данные очищены")
+                document.location.href = "index.html";
+            });
+            $("#about").click(function(){
+                $('#myModal').modal('hide')
+                $("#openREADME").modal('show');
+            });
+
         })
-    })
 
-</script>
-<script>
-    check('');
-</script>
-
+    </script>
+    <script>check('');</script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="barcodescanner.js"></script>
 <script type="text/javascript" src="childbrowser.js"></script>

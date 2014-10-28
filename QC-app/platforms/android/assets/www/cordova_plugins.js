@@ -34,13 +34,21 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
+    },
+    {
+        "file": "plugins/com.bez4pieci.cookies/www/cookies.js",
+        "id": "com.bez4pieci.cookies.cookies",
+        "clobbers": [
+            "cookies"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "com.phonegap.plugins.barcodescanner": "2.0.0",
-    "org.apache.cordova.camera": "0.3.2"
+    "org.apache.cordova.camera": "0.3.2",
+    "com.bez4pieci.cookies": "0.0.1"
 }
 // BOTTOM OF METADATA
 });

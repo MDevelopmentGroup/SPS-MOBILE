@@ -6,11 +6,11 @@
     <name>Ballroom dancing</name>
 
     <description>
-        Scans barcodes.
+        Application for ballroom dancing
     </description>
 
     <author href="http://test.com" email="test@phonegap.com">
-        PhoneGap Team
+        Akvant
     </author>
 
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>

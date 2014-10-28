@@ -5,88 +5,92 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <script src="mobile/jquery-2.1.1.min%20(1).js"></script>
+    <script src="mobile/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
     <link href="bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/authorization.css" rel="stylesheet">
+
     <title>authorization</title>
 </head>
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <button type="button" class="close off"><span aria-hidden="true">&times;</span><span class="sr-only ">Close</span></button>
-        <form class="form-signin" role="form" id="authorization">
-            <h2 class="form-signin-heading">Авторизация</h2>
-            <input type="email" class="form-control" placeholder="Email" required="required" autofocus="" name="login" id="inputlogin">
-            <input type="password" class="form-control" placeholder="Пароль" required="required" name="password" id="inputpass">
-            <input type="checkbox" checked="checked" name="checbox" id="checkboxSL" /> Запомнить меня
-            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user"/> Войти</button>
-        </form>
+    <div class="container">
+        <div class="jumbotron">
+            <button type="button" class="close off"><span aria-hidden="true">&times;</span><span class="sr-only ">Close</span></button>
+            <form class="form-signin" role="form" id="authorization">
+                <h2 class="form-signin-heading">Авторизация</h2>
+                <input type="email" class="form-control" placeholder="Email" required="required" autofocus="" name="login" id="inputlogin">
+                <input type="password" class="form-control" placeholder="Пароль" required="required" name="password" id="inputpass">
+                <input type="checkbox" checked="checked" name="checbox" id="checkboxSL" /> Запомнить меня
+                <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user"/> Войти</button>
+            </form>
+        </div>
+        <div id="result"></div>
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
     </div>
-    <div id="result"></div>
-    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 
     <script>
+        //Главный скрипт.
+        //Проверяем, автоматизирован ли у нас пользователь.
         $(document).ready(function(){
-        if (window.localStorage.getItem('CheckBOX')==1)
-        {
-            $("#inputlogin").attr("value",window.localStorage.getItem('loginSD'));
-            $("#inputpass").attr("value",window.localStorage.getItem('passSD'));
+            if (window.localStorage.getItem('CheckBOX')==1)
 
-        }
-        $( "#authorization" ).submit(function( event ) {
-            // Stop form from submitting normally
+            {
+                var posting = $.post("http://mdg777.zapto.org/rest/LoginA/" , { login: window.localStorage.getItem('loginSD'), password: window.localStorage.getItem('passSD')} );
+                posting.done(function( res ) {
+                    if (res == "Ошибка авторизации.") alert ("Неверный логин или пароль")
+                    else
+                    {
+                        //вытаскиваем наш JSON в localstorage
+                        var abc = JSON.parse(res,function (keyCookies, valueCookies) {
+                            window.localStorage.setItem(keyCookies, valueCookies);
+                            //$.cookie(keyCookies, valueCookies, {path:'/' });
+                            console.log(keyCookies);
+                            console.log(valueCookies);
+                        });
+                        //переходим на основную страницу
+                        document.location.href = "body.html";
+                    }
+                })
+            }
+        //При нажатии на кнопку Авторизации
+            $( "#authorization" ).submit(function( event ) {
             event.preventDefault();
-
-            // Get some values from elements on the page:
+        //Берем нашу форму и проверяем её на адекватность
             var $form = $( this ),
                     v = $form.find( "input[name='login']" ).val(),
                     v2 = $form.find( "input[name='password']" ).val()
                 var atpos = v.indexOf("@");
                 var dotpos = v.lastIndexOf(".");
+        //Если что то не так, то выдаем ошибку и заставляем заново задать данные
                 if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=v.length) {
                     alert("Неверный почтовый адрес");
                     return false;
                 }
-            // Send the data using post
+        //Отправляем данные на сервер
             var posting = $.post("http://mdg777.zapto.org/rest/LoginA/" , { login: v, password: v2} );
-            if ($('#checkboxSL').prop("checked")) window.localStorage.setItem('CheckBOX', true);
-            else window.localStorage.setItem('CheckBOX', false);
-
-            //if (window.localStorage.getItem('CheckBOX'))
-              //  {
-                //    //window.localStorage.setItem('CheckBOX', true);
-                  //  window.localStorage.setItem('loginSD', v);
-                    //window.localStorage.setItem('passSD', v2);
-            //    }
-            //else
-              //  {
-                //    window.localStorage.setItem('CheckBOX', false);
-                  //  window.localStorage.removeItem('loginSD');
-                    //window.localStorage.removeItem('passSD');
-                //}
-         //   }
-            // Put the results in a div
             posting.done(function( res ) {
                 if (res == "Ошибка авторизации.") alert ("Неверный логин или пароль")
-                else{
-                    if (window.localStorage.getItem('CheckBOX') == 1)
+                else
+                {
+                    if ($('#checkboxSL').prop("checked"))
                     {
-                        window.localStorage.setItem('CheckBOX', true);
+                        window.localStorage.setItem('CheckBOX', 1);
                         window.localStorage.setItem('loginSD', v);
                         window.localStorage.setItem('passSD', v2);
                     }
-                    else
-                    {
-                        window.localStorage.setItem('CheckBOX', false);
-                        $("#inputlogin").removeAttr('value');
-                        $("#inputpass").removeAttr('value');
-                        window.localStorage.removeItem('loginSD');
-                        window.localStorage.removeItem('passSD');
-                    }
 
+                    //вытаскиваем наш JSON в localstorage
+                        var abc = JSON.parse(res,function (keyCookies, valueCookies) {
+                        window.localStorage.setItem(keyCookies, valueCookies);
+                        //$.cookie(keyCookies, valueCookies, {path:'/' });
+                        console.log(keyCookies);
+                        console.log(valueCookies);
+                    });
+                    //переходим на основную страницу
                     document.location.href = "body.html";
                 }
                 })
             });
+        //при нажатии на крестик мы выходим из приложения
         $(".off").click(function(){
             navigator.app.exitApp();
         })

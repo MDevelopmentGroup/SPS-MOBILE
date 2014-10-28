@@ -209,8 +209,11 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine-html.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/css/authorization.css \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.bez4pieci.cookies \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/org.apache.cordova.camera \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.bez4pieci.cookies/www \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.bez4pieci.cookies/www/cookies.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner/www \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner/www/barcodescanner.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/org.apache.cordova.camera/www \
@@ -218,7 +221,10 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraConstants.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverHandle.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverOptions.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/js/angular-1.3.0 \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/js/index.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/js/angular-1.3.0/angular.min.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/js/angular-1.3.0/angular.min.js.map \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap/3.2.0 \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap/3.2.0/fonts \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap/3.2.0/css \
@@ -237,11 +243,13 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/bootstrap/3.2.0/js/bootstrap.min.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery-2.1.1.min (1).js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1) \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/carhartl-jquery-cookie-92b7715 \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.min.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.structure.min.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.theme.min.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.theme.css \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/jquery.mobile.custom (1)/jquery.mobile.custom.structure.css \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile/carhartl-jquery-cookie-92b7715/jquery.cookie.js \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/img/logo.png \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/ant-build/AndroidManifest.xml \

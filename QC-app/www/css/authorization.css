@@ -1,7 +1,9 @@
 body {
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: #080808;
+    background-image: url("Waltz1816_72.jpg");
+    background-size: 100%;
+    background-color:#eaeaea;
 }
 
 .form-signin {
