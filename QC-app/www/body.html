@@ -25,12 +25,16 @@
 
     <!-- модальное окно кнопки "Ещё"-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h2><span class="glyphicon glyphicon-cog"></span></h2>
+                </div>
                 <div class="modal-body">
-                    <a class="btn btn-primary btn-block" href="#" role="button" id="ClearCoocie"><span class="glyphicon glyphicon-log-out"></span> Очистить данные и куки</a>
-                    <a class="btn btn-primary btn-block" href="#" role="button" id="about"><span class="glyphicon glyphicon-question-sign"></span> Справка</a>
-                    <a class="btn btn-primary  btn-block off" href="#" role="button"><span class="glyphicon glyphicon-off"></span> Выход из приложения</a>
+                    <a class="btn btn-primary btn-block btn-lg" href="#" role="button" id="ClearCoocie"><span class="glyphicon glyphicon-log-out"></span> Очистить данные и куки</a>
+                    <a class="btn btn-primary btn-block btn-lg" href="#" role="button" id="about"><span class="glyphicon glyphicon-question-sign"></span> Справка</a>
+                    <a class="btn btn-primary btn-block btn-lg off" href="#" role="button"><span class="glyphicon glyphicon-off"></span> Выход из приложения</a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Назад</button>
@@ -43,18 +47,24 @@
     <div class="modal fade bs-example-modal-sm" id="QR-codeAdd" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <h1>Ссылка:</h1><p id="info">http://mdg777.zapto.org/dances/index.html#/Subscription/8b444a38b6a81ee6a2461c6ea1ae0350</p>
-                <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="saveURL"><span class="glyphicon glyphicon-usd"></span> Отправить </a></p>
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h2>Ссылка:</h2>
+                </div>
+                <div class="modal-body">
+                    <p id="info" style="word-wrap:break-word">http://mdg777.zapto.org/dances/index.html#/Subscription/8b444a38b6a81ee6a2461c6ea1ae0350</p>
+                    <p><a class="btn btn-lg btn-primary btn-block" href="#" role="button" id="saveURL"><span class="glyphicon glyphicon-usd"></span> Отправить </a></p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!--Модальное окно справки-->
-    <div class="modal fade bs-example-modal-sm" id="openREADME" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+    <!--Модальное окно результата-->
+    <div class="modal fade bs-example-modal-sm" id="Clear" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <h1>Справка</h1>
-                <p>При нажатии кнопки отправить вы автоматически снимаете одно занятие. После снятия занятия программа покажет количество оставшихся занятий.При нажатии на кнопку "очистить данные и куки" программа удалит пользовательские данные и вы будете переведены на страницу авторизации. </p>
+
             </div>
         </div>
     </div>
@@ -63,10 +73,50 @@
     <div class="modal fade bs-example-modal-sm" id="Result" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <h1>Результат</h1>
-                <p>Школа: </p><p id="SchoolName"></p>
-                <p>Тип занятия: </p><p id="Type"></p>
-                <p>Количество оставшихся занятий: </p><p id="Numb"></p>
+                <div class="modal-header bg-info"><h1>Результат</h1></div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <td>Школа</td>
+                                <td id="SchoolName"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Тип занятия</td>
+                                <td id="Type"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Количество оставшихся занятий</td>
+                                <td id="Numb"></td>
+                            </tr>
+                        </table>
+                    </div>
+                <!--<div class="col-lg-2 col-md-2">
+                    <p>Школа: </p>
+                    <p>Тип занятия: </p>
+                    <p>Количество оставшихся занятий: </p>
+                </div>
+
+                <div class="col-lg-10 col-md-10">
+                    <p id="SchoolName"></p>
+                    <p id="Type"></p>
+                    <p id="Numb"></p>
+                </div>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Модальное окно справки-->
+    <div class="modal fade bs-example-modal-sm" id="openREADME" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header bg-info"><h1>Справка</h1></div>
+                <div class="modal-body">
+                <p>При нажатии кнопки отправить вы автоматически снимаете одно занятие. После снятия занятия программа покажет количество оставшихся занятий.При нажатии на кнопку "очистить данные и куки" программа удалит пользовательские данные и вы будете переведены на страницу авторизации. </p>
+            </div>
             </div>
         </div>
     </div>
@@ -129,6 +179,7 @@
             $("#ClearCoocie").click(function(){
                 localStorage.clear();
                 alert("Данные очищены")
+
                 document.location.href = "index.html";
             });
             $("#about").click(function(){

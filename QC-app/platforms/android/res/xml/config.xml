@@ -16,10 +16,10 @@
     </feature>
     <name>Ballroom dancing</name>
     <description>
-        Scans barcodes.
+        Application for ballroom dancing
     </description>
     <author email="test@phonegap.com" href="http://test.com">
-        PhoneGap Team
+        Akvant
     </author>
     <gap:plugin name="com.phonegap.plugins.barcodescanner" />
     <feature name="http://api.phonegap.com/1.0/device" />
@@ -33,10 +33,10 @@
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="false" />
     <icon src="icon.png" />
-    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
-    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
-    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
-    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" />
+    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/22_36.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/22_48.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/22_72.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/22_96.png" />
     <icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="res/icon/blackberry/icon-80.png" />
     <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />

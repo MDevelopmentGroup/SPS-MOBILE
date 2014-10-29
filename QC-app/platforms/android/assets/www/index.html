@@ -29,8 +29,28 @@
 
     <script>
         //Главный скрипт.
+        //Проверяем, автоматизирован ли у нас пользователь.
         $(document).ready(function(){
-            if (window.localStorage.getItem('CheckBOX')==1) document.location.href = "body.html";
+            if (window.localStorage.getItem('CheckBOX')==1)
+
+            {
+                var posting = $.post("http://mdg777.zapto.org/rest/LoginA/" , { login: window.localStorage.getItem('loginSD'), password: window.localStorage.getItem('passSD')} );
+                posting.done(function( res ) {
+                    if (res == "Ошибка авторизации.") alert ("Неверный логин или пароль")
+                    else
+                    {
+                        //вытаскиваем наш JSON в localstorage
+                        var abc = JSON.parse(res,function (keyCookies, valueCookies) {
+                            window.localStorage.setItem(keyCookies, valueCookies);
+                            //$.cookie(keyCookies, valueCookies, {path:'/' });
+                            console.log(keyCookies);
+                            console.log(valueCookies);
+                        });
+                        //переходим на основную страницу
+                        document.location.href = "body.html";
+                    }
+                })
+            }
         //При нажатии на кнопку Авторизации
             $( "#authorization" ).submit(function( event ) {
             event.preventDefault();
@@ -51,7 +71,13 @@
                 if (res == "Ошибка авторизации.") alert ("Неверный логин или пароль")
                 else
                 {
-                    if ($('#checkboxSL').prop("checked")) window.localStorage.setItem('CheckBOX', 1);
+                    if ($('#checkboxSL').prop("checked"))
+                    {
+                        window.localStorage.setItem('CheckBOX', 1);
+                        window.localStorage.setItem('loginSD', v);
+                        window.localStorage.setItem('passSD', v2);
+                    }
+
                     //вытаскиваем наш JSON в localstorage
                         var abc = JSON.parse(res,function (keyCookies, valueCookies) {
                         window.localStorage.setItem(keyCookies, valueCookies);
