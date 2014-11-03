@@ -95,6 +95,7 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/index.html \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/cordova.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/NETEYE-activity-indicator-1.0.0 \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/spec \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/icon.png \
@@ -109,6 +110,10 @@
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/mobile \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/img \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/cordova_plugins.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/NETEYE-activity-indicator-1.0.0/index.html \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/NETEYE-activity-indicator-1.0.0/jquery.activity-indicator-1.0.0.min.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/NETEYE-activity-indicator-1.0.0/jquery.activity-indicator-1.0.0.js \
+/home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/NETEYE-activity-indicator-1.0.0/README \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/icon \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/screen \
 /home/dmitry/SPS-MOBILE/QC-app/platforms/android/assets/www/res/icon/webos \

@@ -12,7 +12,7 @@
     <title>authorization</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container hidden" id="AuthForm">
         <div class="jumbotron">
             <button type="button" class="close off"><span aria-hidden="true">&times;</span><span class="sr-only ">Close</span></button>
             <form class="form-signin" role="form" id="authorization">
@@ -36,7 +36,12 @@
             {
                 var posting = $.post("http://mdg777.zapto.org/rest/LoginA/" , { login: window.localStorage.getItem('loginSD'), password: window.localStorage.getItem('passSD')} );
                 posting.done(function( res ) {
-                    if (res == "Ошибка авторизации.") alert ("Неверный логин или пароль")
+                    if (res == "Ошибка авторизации.")
+                    {
+                        alert ("Неверный логин или пароль");
+                        $("#AuthForm").removeClass(".hidden")
+                    }
+
                     else
                     {
                         //вытаскиваем наш JSON в localstorage
@@ -51,6 +56,8 @@
                     }
                 })
             }
+            else
+                $("#AuthForm").removeClass("hidden")
         //При нажатии на кнопку Авторизации
             $( "#authorization" ).submit(function( event ) {
             event.preventDefault();
