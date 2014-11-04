@@ -76,12 +76,14 @@
                 <div class="modal-header bg-info"><h1>Результат</h1></div>
                 <div class="modal-body">
                     <div class="table-responsive">
+
                         <table class="table">
                             <tr>
-                                <td>Школа</td>
                                 <td id="SchoolName"></td>
                             </tr>
 
+                        </table>
+                        <table class="table hidden bg-success" id="t1">
                             <tr>
                                 <td>Тип занятия</td>
                                 <td id="Type"></td>
@@ -90,6 +92,17 @@
                             <tr>
                                 <td>Количество оставшихся занятий</td>
                                 <td id="Numb"></td>
+                            </tr>
+                        </table>
+                        <table class="table hidden bg-warning" id="t2">
+                            <tr>
+                                <td>Тип занятия</td>
+                                <td id="Type2"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Количество оставшихся занятий</td>
+                                <td id="Numb2"></td>
                             </tr>
                         </table>
                     </div>
@@ -144,13 +157,27 @@
                     data: {"URL": str, "hash": window.localStorage.getItem("hash"),"userid": window.localStorage.getItem("userId")},
                     dataType: "json",
                     success: function(res){
-                    console.log(res.children.SchoolName);
-                    console.log(res.children.Listtlis[0].Type);
-                    console.log(res.children.Listtlis[0].numb);
-                    document.getElementById("SchoolName").innerHTML = res.children.SchoolName;
-                    document.getElementById("Type").innerHTML = res.children.Listtlis[0].Type;
-                    document.getElementById("Numb").innerHTML = res.children.Listtlis[0].numb;
-                    $("#Result").modal('show');
+                        if (typeof res.children.SchoolName !=="undefined")
+                        {
+
+                            document.getElementById("SchoolName").innerHTML = res.children.SchoolName;
+                            if (typeof res.children.Listtlis[0].TypeLesson !=="undefined")
+                            {
+                            document.getElementById("Type").innerHTML = res.children.Listtlis[0].TypeLesson;
+                            document.getElementById("Numb").innerHTML = res.children.Listtlis[0].numb;
+                            $("#t1").removeClass("hidden")
+
+                            }
+                            if (typeof res.children.Listtlis[1].TypeLesson !=="undefined")
+                            {
+                                document.getElementById("Type2").innerHTML = res.children.Listtlis[1].TypeLesson;
+                                document.getElementById("Numb2").innerHTML = res.children.Listtlis[1].numb;
+                                $("#t2").removeClass("hidden")
+                            }
+                                $("#Result").modal('show');
+
+                        }
+                        else alert("неверная ссылка")
                     }
                 });
             });
